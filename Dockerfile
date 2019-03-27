@@ -4,17 +4,29 @@ ENV CRON false
 ENV HORIZON false
 ENV WORKER false
 
-ENV VERSION 1.0
+ENV VERSION 1.1
 
 RUN apk add --no-cache \
-    curl \
-    wget \
-    git \
-    nano \
-    nginx \
-    supervisor \
-    $( apk search -qe --no-cache 'php7*' | cat ) \
-    composer
+    $( apk search -qe --no-cache 'php7*' | cat )    \
+    autoconf                                        \
+    automake                                        \
+    composer                                        \
+    curl                                            \
+    g++                                             \
+    gifsicle                                        \
+    git                                             \
+    libpng-dev                                      \
+    libtool                                         \
+    make                                            \
+    nano                                            \
+    nasm                                            \
+    nginx                                           \
+    nodejs                                          \
+    nodejs-npm                                      \
+    openssh-client                                  \
+    optipng                                         \
+    supervisor                                      \
+    wget
 
 ADD ./docker /setup
 
