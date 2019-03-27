@@ -4,10 +4,16 @@ ENV CRON false
 ENV HORIZON false
 ENV WORKER false
 
-ENV VERSION 1.1
+ENV VERSION 1.2
 
-RUN apk add --no-cache \
-    $( apk search -qe --no-cache 'php7*' | cat )    \
+RUN apk add --no-cache                              \
+    $(                                              \
+        apk search -qe --no-cache 'php7*'           \
+            | sed -e 's/[^ ]*dev[^ ]*//ig'          \
+            | sed -e 's/[^ ]*pecl[^ ]*//ig'         \
+            | sed -e 's/[^ ]*xdebug[^ ]*//ig'       \
+            | cat                                   \
+    )                                               \
     autoconf                                        \
     automake                                        \
     composer                                        \
