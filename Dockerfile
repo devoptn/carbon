@@ -31,7 +31,7 @@ RUN mkdir -p /run/nginx && \
     rm -rf /etc/nginx/nginx.conf && \
     mv /setup/nginx.conf /etc/nginx/nginx.conf && \
     rm -rf /etc/nginx/conf.d/default.conf && \
-    mv /setup/laravel.conf /etc/nginx/conf.d/laravel.conf
+    mv /setup/nginx.laravel.conf /etc/nginx/conf.d/laravel.conf
 
 RUN chmod a+rwx /setup/init.sh
 
